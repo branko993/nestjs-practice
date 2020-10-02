@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuthOutputType {
+  access_token: String!
+}
+
+type UserOutputType {
+  Email: String!
+  Username: String!
+  Bio: String
+  Image: String
+}
+
+type Comment {
+  Id: ID!
+  Details: String!
+  User: UserOutputType!
+}
+
+type CommentsOutputType {
+  comments: [Comment!]!
+}
+
+type Query {
+  me: UserOutputType!
+  commentsByUser: CommentsOutputType!
+}
+
+type Mutation {
+  register(userInput: UserInputType!): AuthOutputType!
+  login(loginInput: LoginInputType!): AuthOutputType!
+}
+
+input UserInputType {
+  Email: String!
+  Username: String!
+  Password: String!
+  Bio: String
+  Image: String
+}
+
+input LoginInputType {
+  Username: String!
+  Password: String!
+}
